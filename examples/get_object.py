@@ -2,4 +2,4 @@ from pythoncosmicjs import Api
 
 api = Api('pythoncosmicjs')
 
-print(api.list_objects())
+print(api.list_objects(skip=1))
