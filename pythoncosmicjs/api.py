@@ -19,7 +19,7 @@ class Api(object):
         return self.deserialization(url)
 
     def list_media(self):
-        url = '%s/%s/media' % (self.base_url, self.buckets)
+        url = '%s/%s/media%s' % (self.base_url, self.buckets, self.read_key)
         return self.deserialization(url)
 
     @staticmethod
