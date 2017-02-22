@@ -7,12 +7,11 @@ class Api(object):
             print('The error variable is not defined "buckets"')
         self.buckets = buckets
         self.base_url = 'https://api.cosmicjs.com/v1' or base_url
-        self.read_key = '%s' % read_key if read_key else ''
+        self.read_key = '?%s' % read_key if read_key else ''
         self.write_key = write_key or ''
 
     def list_objects(self):
         url = '%s/%s/objects%s' % (self.base_url, self.buckets, self.read_key)
-        print(self.read_key)
         return self.deserialization(url)
 
     def one_object(self, object_name):
