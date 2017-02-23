@@ -1,9 +1,4 @@
-from bottle import route, run, template
+from pythoncosmicjs import Api
+api = Api('pythoncosmicjs', write_key='9rIG8XYnKDP60MtIis8ORv1pzgp2kYsT7PsXyV1yciqwaNIpPC')
 
-
-@route('/name=<name>')
-def index(name):
-    print(name)
-    return template('<b>Hello {{name}}</b>!', name=name)
-
-run(host='localhost', port=8080)
+api.delete_object('first-object')
