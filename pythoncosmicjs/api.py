@@ -26,14 +26,19 @@ class Api(object):
 
     def add_object(self, title, content):
         url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
-        r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content})
+        r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content, 'write_key': self.write_key})
         return r.json()
 
+    def edit_object(self, slug, title, content):
+        url = '%s/%s/edit-object' % (self.base_url, self.buckets)
+        r = requests.put(url, data={'slug': slug, 'title': title, 'content': content})
+        return r.json()
+    
     def delete_object(self, object_name):
         url = '%s/%s/%s' % (self.base_url, self.buckets, object_name)
         r = requests.delete(url, data={'write_key': self.write_key})
         return r.json()
-    
+
     @staticmethod
     def deserialization(url):
         r = requests.get(url)
