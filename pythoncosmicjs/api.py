@@ -14,7 +14,6 @@ class Api(object):
         limit = '?limit=%s' % limit if limit else ''
         skip = '?skip=%s' % skip if skip else ''
         url = '%s/%s/objects%s%s%s' % (self.base_url, self.buckets, self.read_key, limit, skip)
-        print(url)
         return self.deserialization(url)
 
     def one_object(self, object_name):
@@ -24,6 +23,11 @@ class Api(object):
     def list_media(self):
         url = '%s/%s/media%s' % (self.base_url, self.buckets, self.read_key)
         return self.deserialization(url)
+
+    def add_object(self, title, content):
+        url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
+        r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content})
+        return r.json()
 
     @staticmethod
     def deserialization(url):
