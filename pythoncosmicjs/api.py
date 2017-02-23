@@ -33,6 +33,7 @@ class Api(object):
         url = '%s/%s/%s' % (self.base_url, self.buckets, object_name)
         r = requests.delete(url, data={'write_key': self.write_key})
         return r.json()
+    
     @staticmethod
     def deserialization(url):
         r = requests.get(url)
