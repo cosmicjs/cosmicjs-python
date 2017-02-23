@@ -10,6 +10,10 @@ class Api(object):
         self.read_key = '?%s' % read_key if read_key else ''
         self.write_key = write_key or ''
 
+    def all_content(self):
+        url = '%s/%s/' % (self.base_url, self.buckets)
+        return self.deserialization(url)
+
     def list_objects(self, limit=None, skip=None):
         limit = '?limit=%s' % limit if limit else ''
         skip = '?skip=%s' % skip if skip else ''
@@ -33,7 +37,7 @@ class Api(object):
         url = '%s/%s/edit-object' % (self.base_url, self.buckets)
         r = requests.put(url, data={'slug': slug, 'title': title, 'content': content})
         return r.json()
-    
+
     def delete_object(self, object_name):
         url = '%s/%s/%s' % (self.base_url, self.buckets, object_name)
         r = requests.delete(url, data={'write_key': self.write_key})
