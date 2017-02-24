@@ -38,7 +38,8 @@ class Api(object):
 
     def add_object(self, title, content):
         url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
-        r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content, 'write_key': self.write_key})
+        r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content,
+                                     'write_key': self.write_key})
         return r.json()
 
     def edit_object(self, slug, title, content):
