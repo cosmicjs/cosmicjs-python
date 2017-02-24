@@ -20,12 +20,10 @@ class Api(object):
         else:
             query_parameters = '%s%s' % ('?limit=' + str(limit) if limit else '', '?skip=' + str(skip) if skip else '')
         url = '%s/%s/objects%s%s' % (self.base_url, self.buckets, self.read_key, query_parameters)
-        print(url)
         return self.deserialization(url)
 
     def one_object(self, object_name):
         url = '%s/%s/object/%s/%s' % (self.base_url, self.buckets, object_name, self.read_key)
-        print(url)
         return self.deserialization(url)
 
     def list_media(self):
