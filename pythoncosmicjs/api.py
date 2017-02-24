@@ -36,7 +36,7 @@ class Api(object):
         metafield_value = '?metafield_value=%s' % metafield_value if metafield_value else ''
         url = '%s/%s/object-type/%s/search%s%s' % (self.base_url, self.buckets, text_search, limit, skip)
 
-    def add_object(self):
+    def add_object(self, title, content):
         url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
         r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content, 'write_key': self.write_key})
         return r.json()
