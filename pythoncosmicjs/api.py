@@ -15,9 +15,12 @@ class Api(object):
         return self.deserialization(url)
 
     def list_objects(self, limit=None, skip=None):
-        limit = '?limit=%s' % limit if limit else ''
-        skip = '?skip=%s' % skip if skip else ''
-        url = '%s/%s/objects%s%s%s' % (self.base_url, self.buckets, self.read_key, limit, skip)
+        if limit and skip:
+            query_parameters = '?limit=%s&?skip=%s' % (limit, skip)
+        else:
+            query_parameters = '%s%s' % ('?limit=' + str(limit) if limit else '', '?skip=' + str(skip) if skip else '')
+        url = '%s/%s/objects%s%s' % (self.base_url, self.buckets, self.read_key, query_parameters)
+        print(url)
         return self.deserialization(url)
 
     def one_object(self, object_name):
