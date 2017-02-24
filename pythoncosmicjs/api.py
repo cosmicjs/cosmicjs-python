@@ -29,7 +29,14 @@ class Api(object):
         url = '%s/%s/media%s' % (self.base_url, self.buckets, self.read_key)
         return self.deserialization(url)
 
-    def add_object(self, title, content):
+    def search_object(self, text_search, limit=None, skip=None):
+        limit = '?limit=%s' % limit if limit else ''
+        skip = '?skip=%s' % skip if skip else ''
+        metafieldkeys = '?metafield_key=%s' % metafieldkeys if metafieldkeys else ''
+        metafield_value = '?metafield_value=%s' % metafield_value if metafield_value else ''
+        url = '%s/%s/object-type/%s/search%s%s' % (self.base_url, self.buckets, text_search, limit, skip)
+
+    def add_object(self):
         url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
         r = requests.post(url, data={'title': title, 'type_slug': title.replace(' ', '-'), 'content': content, 'write_key': self.write_key})
         return r.json()
