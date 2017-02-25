@@ -13,3 +13,4 @@ install:
   - python setup.py install
 
 # command to run tests
+script: test_add_object
