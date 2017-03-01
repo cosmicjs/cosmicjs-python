@@ -32,7 +32,7 @@ class Api(object):
     def search_object(self, object_type=None, limit=None, skip=None, metafield_keys=None, metafield_value=None):
         payload = {'limit': limit, 'skip': skip, 'metafield_key': metafield_keys, 'metafield_value': metafield_value}
         url = '%s/%s/object-type/%s/search' % (self.base_url, self.buckets, object_type)
-        self.deserialization(url, payload)
+        return self.deserialization(url, payload)
 
     def add_object(self, title, content):
         url = '%s/%s/add-object%s' % (self.base_url, self.buckets, self.write_key)
