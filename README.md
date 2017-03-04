@@ -24,7 +24,7 @@ print(api.add_object(title='title object', content='content object')) title, con
 # Edit object
 print(edit_object(title='change the title', content='change the content')) title, content required variables
 # Delete object
-print(delete_object='first') # the name of the object you want to delete
+print(delete_object(object_name='first')) # the name of the object you want to delete
 # Search object
 print(search_object(object_type='', limit=1, skip=10, metafield_keys='bob', metafield_value='bob'))
 ```
