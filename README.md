@@ -20,9 +20,9 @@ print(one_object(object_name='object name')) # object_name mandatory variable
 # Get media
 print(list_media(limit=10, skip=5)) # limit, skip the default is None
 # Add object
-print(api.add_object(title='title object', content='content object')) title, content required variables
+print(api.add_object(title='title object', content='content object')) # title, content required variables
 # Edit object
-print(edit_object(title='change the title', content='change the content')) title, content required variables
+print(edit_object(title='change the title', content='change the content')) # title, content required variables
 # Delete object
 print(delete_object(object_name='first')) # the name of the object you want to delete
 # Search object
