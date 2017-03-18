@@ -17,8 +17,8 @@ class Api(object):
         url = '%s/%s/objects%s' % (self.base_url, self.buckets, self.read_key)
         return self.deserialization(url, payload)
 
-    def one_object(self, object_name):
-        url = '%s/%s/object/%s/%s' % (self.base_url, self.buckets, object_name, self.read_key)
+    def one_object(self, object_slug):
+        url = '%s/%s/object/%s/%s' % (self.base_url, self.buckets, object_slug, self.read_key)
         return self.deserialization(url)
 
     def list_media(self, limit=None, skip=None):
@@ -45,8 +45,8 @@ class Api(object):
         r = requests.put(url, data={'slug': slug, 'title': title, 'content': content})
         return r.json()
 
-    def delete_object(self, object_name):
-        url = '%s/%s/%s' % (self.base_url, self.buckets, object_name)
+    def delete_object(self, object_slug):
+        url = '%s/%s/%s' % (self.base_url, self.buckets, object_slug)
         r = requests.delete(url, data={'write_key': self.write_key})
         return r.json()
 
