@@ -8,7 +8,7 @@
 ```python
 from pythoncosmicjs import Api
 # Configure
-api = Api(buckets='buckets name', read_key='read key', write_key='write key')
+api = Api(buckets='bucket-slug', read_key='read_key', write_key='write_key')
 # Get bucket
 print(api.all_content())
 # Get objects
@@ -16,15 +16,15 @@ print(list_objects(limit=10, skip=5)) # limit, skip the default is None
 # Get objects by type
 
 # Get object
-print(one_object(object_name='object name')) # object_name mandatory variable
+print(one_object(object_slug='object-slug')) # object_slug mandatory variable
 # Get media
 print(list_media(limit=10, skip=5)) # limit, skip the default is None
 # Add object
-print(api.add_object(title='title object', content='content object')) # title, content required variables
+print(api.add_object(title='object title', content='object content')) # title, content required variables
 # Edit object
 print(edit_object(title='change the title', content='change the content')) # title, content required variables
 # Delete object
-print(delete_object(object_name='first')) # the name of the object you want to delete
+print(delete_object(object_slug='first')) # the name of the object you want to delete
 # Search object
 print(search_object(object_type='', limit=1, skip=10, metafield_keys='bob', metafield_value='bob'))
 ```
