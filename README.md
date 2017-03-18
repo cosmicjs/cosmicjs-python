@@ -1,4 +1,4 @@
-[![Issue Count](https://codeclimate.com/github/cosmicjs/pythoncosmicjs/badges/issue_count.svg)](https://codeclimate.com/github/cosmicjs/pythoncosmicjs)
+[![Issue Count](https://codeclimate.com/github/cosmicjs/cosmicjs-python/badges/issue_count.svg)](https://codeclimate.com/github/cosmicjs/cosmicjs-python)
 
 ## Install
 1. `git clone https://github.com/uskavan/cosmicjs-python.git`
