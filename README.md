@@ -10,7 +10,7 @@
 from pythoncosmicjs import Api
 # Configure
 api = Api(bucket='bucket-slug', read_key='read_key', write_key='write_key')
-# Get bucket
+# Get all contents of bucket including objects and media
 print(api.bucket())
 # Get all objects
 print(api.objects(limit=10, skip=5)) # limit, skip the default is None
