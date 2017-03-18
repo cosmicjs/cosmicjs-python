@@ -7,7 +7,7 @@ class Api(object):
         self.read_key = '?read_key=%s' % read_key if read_key else ''
         self.write_key = '?write_key=%s' % write_key if write_key else ''
 
-    def all_content(self):
+    def bucket(self):
         url = '%s/%s/' % (self.base_url, self.bucket)
         return self.deserialization(url)
 
@@ -21,11 +21,11 @@ class Api(object):
         url = '%s/%s/object-type/%s/%s' % (self.base_url, self.bucket, type_slug, self.read_key)
         return self.deserialization(url, payload)
 
-    def one_object(self, object_slug):
+    def object(self, object_slug):
         url = '%s/%s/object/%s/%s' % (self.base_url, self.bucket, object_slug, self.read_key)
         return self.deserialization(url)
 
-    def list_media(self, limit=None, skip=None):
+    def media(self, limit=None, skip=None):
         if limit and skip:
             query_parameters = '?limit=%s&?skip=%s' % (limit, skip)
         else:

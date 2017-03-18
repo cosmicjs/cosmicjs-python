@@ -11,15 +11,15 @@ from pythoncosmicjs import Api
 # Configure
 api = Api(bucket='bucket-slug', read_key='read_key', write_key='write_key')
 # Get bucket
-print(api.all_content())
+print(api.bucket())
 # Get all objects
 print(api.objects(limit=10, skip=5)) # limit, skip the default is None
 # Get objects by type
 print(api.object_type(type_slug='pages', limit=10, skip=5)) # limit, skip the default is None
 # Get object
-print(api.one_object(object_slug='object-slug')) # object_slug mandatory variable
+print(api.object(object_slug='object-slug')) # object_slug mandatory variable
 # Get media
-print(api.list_media(limit=10, skip=5)) # limit, skip the default is None
+print(api.media(limit=10, skip=5)) # limit, skip the default is None
 # Add object
 print(api.add_object(title='object title', content='object content')) # title, content required variables
 # Edit object
