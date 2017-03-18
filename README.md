@@ -8,7 +8,7 @@
 ```python
 from pythoncosmicjs import Api
 # Configure
-api = Api(buckets='bucket-slug', read_key='read_key', write_key='write_key')
+api = Api(bucket='bucket-slug', read_key='read_key', write_key='write_key')
 # Get bucket
 print(api.all_content())
 # Get objects
