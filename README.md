@@ -23,9 +23,9 @@ print(api.list_media(limit=10, skip=5)) # limit, skip the default is None
 # Add object
 print(api.add_object(title='object title', content='object content')) # title, content required variables
 # Edit object
-print(api.edit_object(title='change the title', content='change the content')) # title, content required variables
+print(api.edit_object(object_slug='object-slug', title='change to the title', content='change to the content')) # title, content required variables
 # Delete object
-print(api.delete_object(object_slug='first')) # the name of the object you want to delete
+print(api.delete_object(object_slug='object-slug')) # the name of the object you want to delete
 # Search object
 print(api.search_object(object_type='', limit=1, skip=10, metafield_keys='bob', metafield_value='bob'))
 ```
