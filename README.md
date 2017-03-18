@@ -2,7 +2,8 @@
 
 ## Install
 1. `git clone https://github.com/uskavan/cosmicjs-python.git`
-2. `python setup.py install`
+2. `cd cosmicjs-python`
+3. `python setup.py install`
 
 ### Usage
 ```python
@@ -11,10 +12,10 @@ from pythoncosmicjs import Api
 api = Api(bucket='bucket-slug', read_key='read_key', write_key='write_key')
 # Get bucket
 print(api.all_content())
-# Get objects
-print(api.list_objects(limit=10, skip=5)) # limit, skip the default is None
+# Get all objects
+print(api.objects(limit=10, skip=5)) # limit, skip the default is None
 # Get objects by type
-
+print(api.object_type(type_slug='pages', limit=10, skip=5)) # limit, skip the default is None
 # Get object
 print(api.one_object(object_slug='object-slug')) # object_slug mandatory variable
 # Get media

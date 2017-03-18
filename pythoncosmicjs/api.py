@@ -11,9 +11,14 @@ class Api(object):
         url = '%s/%s/' % (self.base_url, self.bucket)
         return self.deserialization(url)
 
-    def list_objects(self, limit=None, skip=None):
+    def objects(self, limit=None, skip=None):
         payload = {'limit': limit, 'skip': skip}
         url = '%s/%s/objects%s' % (self.base_url, self.bucket, self.read_key)
+        return self.deserialization(url, payload)
+
+    def object_type(self, type_slug, limit=None, skip=None):
+        payload = {'limit': limit, 'skip': skip}
+        url = '%s/%s/object-type/%s/%s' % (self.base_url, self.bucket, type_slug, self.read_key)
         return self.deserialization(url, payload)
 
     def one_object(self, object_slug):
