@@ -1,6 +1,5 @@
 import requests
 
-
 class Api(object):
     def __init__(self, bucket, read_key=None, write_key=None, base_url=None):
         self.bucket = bucket
