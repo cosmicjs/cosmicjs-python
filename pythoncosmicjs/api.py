@@ -7,8 +7,8 @@ class Api(object):
         self.read_key = '?read_key=%s' % read_key if read_key else ''
         self.write_key = '?write_key=%s' % write_key if write_key else ''
 
-    def bucket(self):
-        url = '%s/%s/' % (self.base_url, self.bucket)
+    def get_bucket(self):
+        url = '%s/%s%s' % (self.base_url, self.bucket, self.read_key)
         return self.deserialization(url)
 
     def objects(self, limit=None, skip=None):
